@@ -60,7 +60,10 @@ export function RemotionPlayerLazy<T extends Record<string, unknown>>({
         // 首次进入视口时不 seekTo，避免与 Player 内部 mount 期间的初始化竞争（会看到一帧黑屏闪烁）
         if (rewindOnEnter && hasPlayedOnceRef.current)
           player.seekTo(0)
-        player.play()
+        const result = player.play() as unknown
+        // play() 返回 Promise，autoplay 被拦时是 rejection，必须显式吞掉避免 unhandledrejection
+        if (result && typeof (result as Promise<void>).catch === 'function')
+          (result as Promise<void>).catch(() => { /* autoplay blocked，等用户交互或下一次 IO 回调再试 */ })
         hasPlayedOnceRef.current = true
       }
       else {
@@ -104,20 +107,17 @@ export function RemotionPlayerLazy<T extends Record<string, unknown>>({
   }, [playInView, apply])
 
   return (
-    <Suspense
-      fallback={(
-        <div
-          className={`flex items-center justify-center border border-terminal-border bg-terminal-bgPanel font-mono text-sm text-terminal-fgDim ${className}`}
-          style={aspectStyle}
-        >
-          {t('common.loading')}
-        </div>
-      )}
+    <div
+      ref={containerRef}
+      className={`overflow-hidden border border-terminal-border ${className}`}
+      style={aspectStyle}
     >
-      <div
-        ref={containerRef}
-        className={`overflow-hidden border border-terminal-border ${className}`}
-        style={aspectStyle}
+      <Suspense
+        fallback={(
+          <div className="flex h-full w-full items-center justify-center bg-terminal-bgPanel font-mono text-sm text-terminal-fgDim">
+            {t('common.loading')}
+          </div>
+        )}
       >
         <LazyPlayer
           ref={handlePlayerRef}
@@ -130,10 +130,11 @@ export function RemotionPlayerLazy<T extends Record<string, unknown>>({
           controls={controls}
           loop={loop}
           autoPlay
+          initiallyMuted
           acknowledgeRemotionLicense
           style={{ width: '100%', height: '100%' }}
         />
-      </div>
-    </Suspense>
+      </Suspense>
+    </div>
   )
 }
