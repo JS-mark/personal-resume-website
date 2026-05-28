@@ -37,3 +37,6 @@ pnpm-debug.log*
 
 # coverage
 coverage
+
+# local scratch (screenshots, throwaway artifacts)
+.tmp

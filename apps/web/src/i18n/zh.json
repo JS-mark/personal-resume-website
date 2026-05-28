@@ -33,7 +33,10 @@
     "command": "$ ls -la ./projects",
     "viewDetails": "查看详情",
     "viewRepo": "源代码",
-    "viewLive": "在线访问"
+    "viewLive": "在线访问",
+    "previous": "上一个项目",
+    "next": "下一个项目",
+    "gotoSlide": "跳转到第 {{n}} 个项目"
   },
   "experience": {
     "title": "// 职业时间轴",

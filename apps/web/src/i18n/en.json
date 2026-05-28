@@ -33,7 +33,10 @@
     "command": "$ ls -la ./projects",
     "viewDetails": "view details",
     "viewRepo": "view repo",
-    "viewLive": "view live"
+    "viewLive": "view live",
+    "previous": "previous project",
+    "next": "next project",
+    "gotoSlide": "go to slide {{n}}"
   },
   "experience": {
     "title": "// career.timeline",
