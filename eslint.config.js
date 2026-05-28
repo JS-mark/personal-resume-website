@@ -16,6 +16,8 @@ export default antfu({
     '**/public/videos/**',
     '**/public/manifest.json',
     'apps/web/public/fonts/**',
+    // Lottie 动画数据是外部生成的 minified JSON，不该套我们的 jsonc 规则
+    '**/*.lottie.json',
   ],
 }, {
   rules: {
