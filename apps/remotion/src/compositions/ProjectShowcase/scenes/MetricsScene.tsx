@@ -73,7 +73,7 @@ export function MetricsScene({ project, locale }: MetricsSceneProps) {
 
           return (
             <div
-              key={i}
+              key={metric.label.zh}
               style={{
                 flex: 1,
                 background: theme.terminal.bgPanel,

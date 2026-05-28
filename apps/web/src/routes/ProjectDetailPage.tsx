@@ -17,7 +17,10 @@ export function ProjectDetailPage() {
   if (!slug || !projectsBySlug[slug]) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 font-mono text-terminal-fg">
-        <p className="text-status-error">project not found: {slug}</p>
+        <p className="text-status-error">
+          project not found:
+          {slug}
+        </p>
         <Link to="/" className="mt-4 inline-flex items-center gap-1 text-neon-cyan">
           <ArrowLeft className="size-4" />
           {t('common.back')}
@@ -39,7 +42,11 @@ export function ProjectDetailPage() {
       </Link>
 
       <header className="mb-8">
-        <p className="text-xs text-terminal-fgDim">$ cat ./projects/{project.slug}/README.md</p>
+        <p className="text-xs text-terminal-fgDim">
+          $ cat ./projects/
+          {project.slug}
+          /README.md
+        </p>
         <h1 className="mt-2 text-3xl font-bold text-neon-cyan text-glow-cyan md:text-4xl">
           {localize(project.name)}
         </h1>
@@ -90,8 +97,8 @@ export function ProjectDetailPage() {
 
       {project.metrics && (
         <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {project.metrics.map((m, i) => (
-            <div key={i} className="border border-terminal-border bg-terminal-bgAlt/60 p-4">
+          {project.metrics.map(m => (
+            <div key={m.label.zh} className="border border-terminal-border bg-terminal-bgAlt/60 p-4">
               <p className="text-xs text-terminal-fgDim">{localize(m.label)}</p>
               <p className="mt-1 text-2xl font-bold text-neon-cyan">{m.value}</p>
               {m.delta && <p className="text-xs text-status-success">{m.delta}</p>}
@@ -105,7 +112,7 @@ export function ProjectDetailPage() {
           {t('experience.highlights')}
         </h2>
         <ul className="list-disc space-y-1 pl-5 text-sm text-terminal-fg marker:text-neon-cyan">
-          {project.highlights.map((h, i) => <li key={i}>{localize(h)}</li>)}
+          {project.highlights.map(h => <li key={h.zh}>{localize(h)}</li>)}
         </ul>
       </section>
 
@@ -121,7 +128,8 @@ export function ProjectDetailPage() {
       {project.codeSnippet && (
         <section className="mb-8">
           <p className="mb-2 text-xs text-terminal-fgDim">
-            $ cat ./snippet.{project.codeSnippet.language}
+            $ cat ./snippet.
+            {project.codeSnippet.language}
           </p>
           <pre className="overflow-auto border border-terminal-border bg-terminal-bgPanel p-4 text-xs leading-relaxed text-neon-green">
             <code>{project.codeSnippet.code}</code>

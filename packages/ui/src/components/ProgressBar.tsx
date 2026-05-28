@@ -54,6 +54,7 @@ export function ProgressBar({
                 const filled = i < Math.round(clamped * 20)
                 return (
                   <span
+                    // eslint-disable-next-line react/no-array-index-key -- 固定 20 段进度条，索引即位置身份
                     key={i}
                     className={`h-3 flex-1 ${filled ? variantFg[variant] : 'bg-terminal-border'}`}
                   />

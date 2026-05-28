@@ -72,6 +72,7 @@ export function ArchDiagramScene({ project, locale }: ArchDiagramSceneProps) {
                 const cx = fx + (tx - fx) * progress
                 const cy = fy + (ty - fy) * progress
                 return (
+                  // eslint-disable-next-line react/no-array-index-key -- 边索引即可视化连线的稳定身份
                   <g key={i}>
                     <line x1={fx} y1={fy} x2={tx} y2={ty} stroke={theme.terminal.border} strokeWidth={1} opacity={0.4 * progress} />
                     <line

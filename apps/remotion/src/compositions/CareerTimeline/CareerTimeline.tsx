@@ -1,10 +1,10 @@
+import type { CareerTimelineProps } from './schema'
 import { formatYearMonth, localize } from '@resume/data'
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 import { ensureFonts, fontFamily } from '../../fonts'
 import { NeonGrid } from '../../layers/NeonGrid'
 import { Scanlines } from '../../layers/Scanlines'
 import { theme } from '../../theme'
-import type { CareerTimelineProps } from './schema'
 
 ensureFonts()
 
@@ -66,7 +66,7 @@ export function CareerTimeline({ work, locale }: CareerTimelineProps) {
               })
               return (
                 <div
-                  key={i}
+                  key={`${item.startDate}-${item.name.zh}`}
                   style={{
                     width: slotWidth,
                     flexShrink: 0,
@@ -103,7 +103,9 @@ export function CareerTimeline({ work, locale }: CareerTimelineProps) {
                       {localize(item.position, locale)}
                     </p>
                     <p style={{ fontSize: 28, color: theme.neon.magenta, marginTop: 4 }}>
-                      @ {localize(item.name, locale)}
+                      @
+                      {' '}
+                      {localize(item.name, locale)}
                     </p>
                     <p
                       style={{

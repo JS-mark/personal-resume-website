@@ -32,6 +32,7 @@ export function MatrixRain({ opacity = 0.15, columns = 80, speed = 12 }: MatrixR
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         {drops.map((d, i) => (
           <text
+            // eslint-disable-next-line react/no-array-index-key -- 雨滴是按列索引分配的视觉槽位
             key={i}
             x={d.x}
             y={d.y}

@@ -21,6 +21,7 @@ export function useSaveData(): boolean {
     if (!conn)
       return
 
+    // eslint-disable-next-line react/set-state-in-effect -- 同步浏览器命令式 API 的初始值，标准用法
     const update = () => setSaveData(Boolean(conn.saveData))
     update()
     conn.addEventListener('change', update)

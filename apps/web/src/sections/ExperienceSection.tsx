@@ -1,7 +1,6 @@
 import { formatYearMonth, resume } from '@resume/data'
 import { CareerTimeline, compositionMeta } from '@resume/remotion'
 import { useTranslation } from 'react-i18next'
-import { Reveal } from '@/components/effects/Reveal'
 import { RevealItem, RevealStagger } from '@/components/effects/RevealStagger'
 import { SectionHeader } from '@/components/layout/SectionHeader'
 import { VideoWithFallback } from '@/components/video/VideoWithFallback'
@@ -32,8 +31,8 @@ export function ExperienceSection() {
       </div>
 
       <RevealStagger as="ol" className="relative space-y-12 border-l border-terminal-border/60 pl-10" stagger={0.12}>
-        {resume.work.map((work, idx) => (
-          <RevealItem key={`${work.startDate}-${idx}`} as="li" className="relative pl-[10px]" y={28}>
+        {resume.work.map(work => (
+          <RevealItem key={`${work.startDate}-${work.name.zh}`} as="li" className="relative pl-[10px]" y={28}>
             <span className="absolute -left-[18px] top-1.5 size-3 rounded-full bg-neon-cyan shadow-neon-cyan ring-4 ring-terminal-bg" />
 
             <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-terminal-fgDim">
@@ -50,8 +49,8 @@ export function ExperienceSection() {
             </h3>
 
             <ul className="mt-4 space-y-1.5 font-mono text-sm leading-relaxed text-terminal-fg/85">
-              {work.highlights.map((h, i) => (
-                <li key={i} className="flex gap-3">
+              {work.highlights.map(h => (
+                <li key={h.zh} className="flex gap-3">
                   <span className="mt-px shrink-0 text-neon-cyan/80">▸</span>
                   <span>{localize(h)}</span>
                 </li>

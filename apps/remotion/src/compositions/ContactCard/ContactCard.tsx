@@ -1,10 +1,10 @@
+import type { ContactCardProps } from './schema'
 import { localize } from '@resume/data'
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 import { ensureFonts, fontFamily } from '../../fonts'
 import { CRTFrame } from '../../layers/CRTFrame'
 import { Scanlines } from '../../layers/Scanlines'
 import { theme } from '../../theme'
-import type { ContactCardProps } from './schema'
 
 ensureFonts()
 
@@ -78,8 +78,8 @@ export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
                     <span style={{ color: theme.neon.cyan }}>{basics.url}</span>
                   </li>
                 )}
-                {basics.profiles.slice(0, 2).map((p, i) => (
-                  <li key={i} style={{ fontSize: 24, color: theme.terminal.fg }}>
+                {basics.profiles.slice(0, 2).map(p => (
+                  <li key={p.network} style={{ fontSize: 24, color: theme.terminal.fg }}>
                     <span style={{ color: theme.terminal.fgDim, display: 'inline-block', width: 110 }}>
                       {p.network.toLowerCase()}
                     </span>
@@ -98,6 +98,7 @@ export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
                     on
                       ? (
                           <rect
+                            // eslint-disable-next-line react/no-array-index-key -- 二维网格坐标即天然唯一 key
                             key={`${x}-${y}`}
                             x={x * 40}
                             y={y * 40}
@@ -136,7 +137,7 @@ export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
  */
 function generateQRGrid(payload: string): boolean[][] {
   const size = 8
-  const grid: boolean[][] = Array.from({ length: size }, () => Array.from({ length: size }, () => false))
+  const grid: boolean[][] = Array.from({ length: size }, () => Array.from({ length: size }).fill(false) as boolean[])
   let h = 5381
   for (let i = 0; i < payload.length; i++)
     h = (h * 33) ^ payload.charCodeAt(i)
@@ -149,9 +150,10 @@ function generateQRGrid(payload: string): boolean[][] {
   }
   // 模拟左上、右上、左下定位标记
   for (const [px, py] of [[0, 0], [6, 0], [0, 6]] as const) {
-    for (let dy = 0; dy < 2; dy++)
+    for (let dy = 0; dy < 2; dy++) {
       for (let dx = 0; dx < 2; dx++)
         grid[py + dy]![px + dx] = true
+    }
   }
   return grid
 }

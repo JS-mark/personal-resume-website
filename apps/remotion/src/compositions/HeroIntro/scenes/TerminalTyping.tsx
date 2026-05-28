@@ -1,8 +1,8 @@
+import type { HeroIntroProps } from '../schema'
 import { localize } from '@resume/data'
 import { interpolate, useCurrentFrame } from 'remotion'
 import { fontFamily } from '../../../fonts'
 import { theme } from '../../../theme'
-import type { HeroIntroProps } from '../schema'
 
 /**
  * `$ whoami` 终端打字效果：
@@ -52,7 +52,9 @@ export function TerminalTyping({ name, taglines, locale }: HeroIntroProps) {
             textShadow: '0 0 16px rgba(0,245,255,0.6), 0 0 48px rgba(0,245,255,0.3)',
           }}
         >
-          &gt; {nameText}
+          &gt;
+          {' '}
+          {nameText}
           {cursorOn && nameCharsShown < name.length && (
             <span style={{ display: 'inline-block', width: '0.5em', background: theme.neon.cyan, marginLeft: 8, height: '0.9em', verticalAlign: 'middle' }} />
           )}
@@ -69,7 +71,7 @@ export function TerminalTyping({ name, taglines, locale }: HeroIntroProps) {
 
         return (
           <div
-            key={i}
+            key={tagline.zh}
             style={{
               fontSize: 42,
               color: theme.neon.magenta,

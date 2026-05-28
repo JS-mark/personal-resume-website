@@ -9,15 +9,14 @@
 ## 导出
 
 ```ts
-// 设计 token (颜色)
-import { colors } from '@resume/ui'
-import { colors } from '@resume/ui/tokens'
+// 设计 token (颜色) + 原子组件 — 都从顶层桶导出
+import { colors, NeonButton, ProgressBar, Tag, TerminalWindow } from '@resume/ui'
 
 // Tailwind preset(应用到 apps 的 tailwind.config.ts)
 import { cyberpunkPreset } from '@resume/ui/tailwind-preset'
 
-// 原子组件
-import { TerminalWindow, NeonButton, ProgressBar, Tag } from '@resume/ui'
+// 也可以从子路径直接拿 token
+import { colors as colorsFromTokens } from '@resume/ui/tokens'
 ```
 
 ## 文件
@@ -47,7 +46,7 @@ export default {
   presets: [cyberpunkPreset as Config],
   content: [
     './src/**/*.{ts,tsx}',
-    '../../packages/ui/src/**/*.{ts,tsx}',  // ← 必须包含,否则共享组件的 utility 类会被 purge
+    '../../packages/ui/src/**/*.{ts,tsx}', // ← 必须包含,否则共享组件的 utility 类会被 purge
   ],
 } satisfies Config
 ```
