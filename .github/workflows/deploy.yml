@@ -36,13 +36,18 @@ jobs:
           cache: pnpm
 
       # Remotion 渲染所需的系统库（Chromium + ffmpeg）
+      # Ubuntu 24.04（noble）time_t ABI 迁移把若干 lib 加了 t64 后缀，
+      # 老名字（如 libasound2）已无 install candidate，必须用 t64 变体。
       - name: Install system deps for Remotion
         run: |
           sudo apt-get update
           sudo apt-get install -y \
             ffmpeg \
-            libnss3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 \
-            libxkbcommon0 libpango-1.0-0 libcairo2 libasound2
+            libnss3 \
+            libatk1.0-0t64 libatk-bridge2.0-0t64 \
+            libgbm1 libxkbcommon0 \
+            libpango-1.0-0 libcairo2 \
+            libasound2t64
 
       - run: pnpm install --frozen-lockfile
 
