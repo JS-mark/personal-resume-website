@@ -5,19 +5,23 @@ import { ensureFonts, fontFamily } from '../../fonts'
 import { CRTFrame } from '../../layers/CRTFrame'
 import { Scanlines } from '../../layers/Scanlines'
 import { theme } from '../../theme'
+import { LottieCat } from './LottieCat'
 
 ensureFonts()
 
-/** 名片 Y 轴翻转 + QR 描边动画 */
-export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
+/** 名片 Y 轴翻转 + 霓虹猫宠物动画 */
+export function ContactCard({ basics, locale }: ContactCardProps) {
   const frame = useCurrentFrame()
   const { fps } = useVideoConfig()
 
   const flipProgress = spring({ frame: frame - 10, fps, config: { damping: 18, stiffness: 80 } })
   const rotateY = interpolate(flipProgress, [0, 1], [180, 0])
 
-  const qrLength = 8 * 40
-  const qrDraw = interpolate(frame, [60, 160], [qrLength, 0], {
+  // 阴影呼吸：基础发光 + 一个 ~2.5s 周期的强度浮动
+  const glowPulse = (Math.sin((frame / fps) * 2.2) + 1) / 2 // 0..1
+  const glowSpread = 32 + glowPulse * 18
+  const glowAlpha = 0.32 + glowPulse * 0.18
+  const catOpacity = interpolate(frame, [30, 80], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   })
@@ -89,39 +93,18 @@ export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
               </ul>
             </div>
 
-            {/* 简化二维码占位：8x8 网格根据 qrPayload 哈希生成 + 描边动画 */}
-            <div style={{ width: 280, height: 280, position: 'relative' }}>
-              <svg viewBox="0 0 320 320" width={280} height={280}>
-                <rect width={320} height={320} fill={theme.terminal.bg} />
-                {generateQRGrid(qrPayload).map((row, y) =>
-                  row.map((on, x) =>
-                    on
-                      ? (
-                          <rect
-                            // eslint-disable-next-line react/no-array-index-key -- 二维网格坐标即天然唯一 key
-                            key={`${x}-${y}`}
-                            x={x * 40}
-                            y={y * 40}
-                            width={40}
-                            height={40}
-                            fill={theme.neon.cyan}
-                          />
-                        )
-                      : null,
-                  ),
-                )}
-                <rect
-                  x={2}
-                  y={2}
-                  width={316}
-                  height={316}
-                  fill="none"
-                  stroke={theme.neon.cyan}
-                  strokeWidth={4}
-                  strokeDasharray={qrLength}
-                  strokeDashoffset={qrDraw}
-                />
-              </svg>
+            {/* Lottie 宠物：圆形遮罩 + 霓虹呼吸阴影 */}
+            <div
+              style={{
+                width: 280,
+                height: 280,
+                position: 'relative',
+                opacity: catOpacity,
+                borderRadius: '50%',
+                boxShadow: `0 0 ${glowSpread}px rgba(0,245,255,${glowAlpha}), 0 0 ${glowSpread * 1.8}px rgba(0,245,255,${glowAlpha * 0.4})`,
+              }}
+            >
+              <LottieCat size={280} />
             </div>
           </div>
         </div>
@@ -129,31 +112,4 @@ export function ContactCard({ basics, qrPayload, locale }: ContactCardProps) {
       <Scanlines opacity={0.5} />
     </AbsoluteFill>
   )
-}
-
-/**
- * 简化的「伪二维码」生成：基于 payload 字符串哈希得到 8x8 黑白网格。
- * 不是真二维码，纯视觉占位 —— 真实使用时可以接入 qrcode 库。
- */
-function generateQRGrid(payload: string): boolean[][] {
-  const size = 8
-  const grid: boolean[][] = Array.from({ length: size }, () => Array.from({ length: size }).fill(false) as boolean[])
-  let h = 5381
-  for (let i = 0; i < payload.length; i++)
-    h = (h * 33) ^ payload.charCodeAt(i)
-
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      h = (h * 1664525 + 1013904223) >>> 0
-      grid[y]![x] = (h & 1) === 1
-    }
-  }
-  // 模拟左上、右上、左下定位标记
-  for (const [px, py] of [[0, 0], [6, 0], [0, 6]] as const) {
-    for (let dy = 0; dy < 2; dy++) {
-      for (let dx = 0; dx < 2; dx++)
-        grid[py + dy]![px + dx] = true
-    }
-  }
-  return grid
 }

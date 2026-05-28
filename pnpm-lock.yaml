@@ -38,6 +38,9 @@ importers:
       '@remotion/google-fonts':
         specifier: ^4.0.468
         version: 4.0.468(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@remotion/lottie':
+        specifier: ^4.0.468
+        version: 4.0.468(lottie-web@5.13.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@remotion/renderer':
         specifier: ^4.0.468
         version: 4.0.468(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -942,6 +945,13 @@ packages:
 
   '@remotion/licensing@4.0.468':
     resolution: {integrity: sha512-l0iIn8YVdKiOBYDN1bnbtguMReq/Q7QozxtHr+mKIHr66zeCjhpwFvHklmN/LXMFGWh2OxfNJ6fgXKWS1Iuy3A==}
+
+  '@remotion/lottie@4.0.468':
+    resolution: {integrity: sha512-9mh6VMpvUWRj+CwjaUoLEt5EbDjku8KtVS7TIwbseOtGrPrbEo+REzx6M66AiYMKecQeeYoFA1n6xfXhXV38tQ==}
+    peerDependencies:
+      lottie-web: ^5
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   '@remotion/media-parser@4.0.468':
     resolution: {integrity: sha512-lh6IGOmVnCsV6oytuGbgr9PB/AkWnWRwBr8tsq7gpjBqhR3oLe3fFd+p7jJreMrF+l4y55bcrf52qT3yxBD9fw==}
@@ -2478,6 +2488,9 @@ packages:
 
   longest-streak@3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
+
+  lottie-web@5.13.0:
+    resolution: {integrity: sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==}
 
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
@@ -4404,6 +4417,13 @@ snapshots:
 
   '@remotion/licensing@4.0.468': {}
 
+  '@remotion/lottie@4.0.468(lottie-web@5.13.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+    dependencies:
+      lottie-web: 5.13.0
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+      remotion: 4.0.468(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+
   '@remotion/media-parser@4.0.468': {}
 
   '@remotion/media-utils@4.0.468(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
@@ -6050,6 +6070,8 @@ snapshots:
   lodash.sortby@4.7.0: {}
 
   longest-streak@3.1.0: {}
+
+  lottie-web@5.13.0: {}
 
   lru-cache@6.0.0:
     dependencies:
