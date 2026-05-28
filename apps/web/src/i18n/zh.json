@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "skills": "技能",
+    "projects": "项目",
+    "experience": "经历",
+    "contact": "联系"
+  },
+  "hero": {
+    "command": "$ whoami",
+    "subtitle": "向下滚动浏览更多"
+  },
+  "about": {
+    "title": "// 关于我",
+    "command": "$ cat ~/about.md"
+  },
+  "skills": {
+    "title": "// skills.render()",
+    "command": "$ ls ./skills",
+    "tabs": {
+      "all": "全部",
+      "language": "编程语言",
+      "framework": "框架",
+      "tool": "工具",
+      "platform": "平台",
+      "soft": "软实力"
+    },
+    "yearsExp": "{{count}} 年"
+  },
+  "projects": {
+    "title": "// 项目",
+    "command": "$ ls -la ./projects",
+    "viewDetails": "查看详情",
+    "viewRepo": "源代码",
+    "viewLive": "在线访问"
+  },
+  "experience": {
+    "title": "// 职业时间轴",
+    "command": "$ git log --oneline ./career",
+    "present": "至今",
+    "techStack": "技术栈",
+    "highlights": "亮点"
+  },
+  "contact": {
+    "title": "// 联系",
+    "command": "$ echo $REACH_OUT",
+    "copyEmail": "复制邮箱",
+    "copied": "已复制！"
+  },
+  "common": {
+    "play": "播放",
+    "loading": "加载中…",
+    "back": "返回",
+    "yearsExperience": "{{count}}+ 年",
+    "of": "/"
+  },
+  "footer": {
+    "craftedBy": "由",
+    "craftedBySuffix": "制作",
+    "openSource": "免费开源使用",
+    "licensed": "协议开源",
+    "viewSource": "查看源代码"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "找不到命令",
+    "suggestion": "试试 `cd /` 或 `cd /projects`"
+  }
+}

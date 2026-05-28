@@ -1,0 +1,70 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      # Remotion 渲染需要 Chromium 系统依赖与 ffmpeg
+      - name: Install system deps for Remotion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ffmpeg \
+            libnss3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 \
+            libxkbcommon0 libpango-1.0-0 libcairo2 libasound2
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint && pnpm typecheck && pnpm test
+
+      # 缓存 Remotion 下载的 Chromium，避免每次重新下载
+      - name: Cache Remotion Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/remotion
+          key: remotion-chromium-${{ runner.os }}-v4
+
+      # 缓存渲染产物：composition 源码 + data 未变时直接命中
+      - name: Cache rendered videos
+        id: cache-videos
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/web/public/videos
+            apps/web/public/manifest.json
+          key: videos-${{ hashFiles('apps/remotion/src/**', 'packages/data/src/**') }}
+
+      - name: Render Remotion videos
+        if: steps.cache-videos.outputs.cache-hit != 'true'
+        run: pnpm render
+
+      - name: Build web
+        run: pnpm --filter web build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: resume
+          directory: apps/web/dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

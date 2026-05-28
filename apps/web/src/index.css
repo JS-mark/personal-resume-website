@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* JetBrains Mono 通过 index.html 中的 Google Fonts <link> 加载 */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    background-color: theme('colors.terminal.bg');
+    color: theme('colors.terminal.fg');
+    font-family: theme('fontFamily.mono');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 自定义文本选区 */
+  ::selection {
+    background-color: theme('colors.neon.cyan');
+    color: theme('colors.terminal.bg');
+  }
+
+  /* 自定义滚动条（不影响可访问性） */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.terminal.bg');
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.terminal.border');
+    border: 2px solid theme('colors.terminal.bg');
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.neon.cyan');
+  }
+
+  /* reduced motion 时统一禁用动画 */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* 故障字 ::before/::after 双层位移叠加 */
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .glitch-text::before {
+    color: theme('colors.neon.magenta');
+    animation: glitch 700ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  .glitch-text::after {
+    color: theme('colors.neon.cyan');
+    animation: glitch 700ms infinite reverse;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.6), 0 0 24px rgba(0, 245, 255, 0.3);
+  }
+
+  .text-glow-magenta {
+    text-shadow: 0 0 8px rgba(255, 0, 170, 0.6), 0 0 24px rgba(255, 0, 170, 0.3);
+  }
+}

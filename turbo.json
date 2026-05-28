@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["tsconfig.base.json", ".npmrc"],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".vite/**"]
+    },
+    "render": {
+      "dependsOn": ["^build"],
+      "outputs": ["out/**", "../web/public/videos/**", "../web/public/manifest.json"],
+      "inputs": [
+        "src/**",
+        "scripts/**",
+        "remotion.config.ts",
+        "../../packages/data/src/**",
+        "../../packages/ui/src/**"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {}
+  }
+}

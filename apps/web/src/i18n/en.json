@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "home",
+    "about": "about",
+    "skills": "skills",
+    "projects": "projects",
+    "experience": "experience",
+    "contact": "contact"
+  },
+  "hero": {
+    "command": "$ whoami",
+    "subtitle": "scroll for more"
+  },
+  "about": {
+    "title": "// about",
+    "command": "$ cat ~/about.md"
+  },
+  "skills": {
+    "title": "// skills.render()",
+    "command": "$ ls ./skills",
+    "tabs": {
+      "all": "all",
+      "language": "languages",
+      "framework": "frameworks",
+      "tool": "tools",
+      "platform": "platforms",
+      "soft": "soft skills"
+    },
+    "yearsExp": "{{count}} yr"
+  },
+  "projects": {
+    "title": "// projects",
+    "command": "$ ls -la ./projects",
+    "viewDetails": "view details",
+    "viewRepo": "view repo",
+    "viewLive": "view live"
+  },
+  "experience": {
+    "title": "// career.timeline",
+    "command": "$ git log --oneline ./career",
+    "present": "present",
+    "techStack": "tech",
+    "highlights": "highlights"
+  },
+  "contact": {
+    "title": "// contact",
+    "command": "$ echo $REACH_OUT",
+    "copyEmail": "copy email",
+    "copied": "copied!"
+  },
+  "common": {
+    "play": "play",
+    "loading": "loading…",
+    "back": "back",
+    "yearsExperience": "{{count}}+ years",
+    "of": "of"
+  },
+  "footer": {
+    "craftedBy": "crafted by",
+    "craftedBySuffix": "",
+    "openSource": "free & open source",
+    "licensed": "licensed under",
+    "viewSource": "view source"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "command not found",
+    "suggestion": "try `cd /` or `cd /projects`"
+  }
+}

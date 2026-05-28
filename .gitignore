@@ -1,0 +1,38 @@
+node_modules
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# build outputs
+dist
+out
+.turbo
+.vite
+*.tsbuildinfo
+
+# Remotion
+apps/remotion/out
+apps/remotion/.cache
+
+# rendered video artifacts (generated in CI)
+apps/web/public/videos/*.mp4
+apps/web/public/videos/*.webm
+apps/web/public/videos/*.jpg
+apps/web/public/manifest.json
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Claude Code per-user local settings (skills/ stays tracked)
+.claude/settings.local.json
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# coverage
+coverage

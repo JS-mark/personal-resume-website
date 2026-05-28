@@ -1,0 +1,41 @@
+{
+  "name": "@resume/remotion",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/exports.ts",
+  "types": "./src/exports.ts",
+  "exports": {
+    ".": "./src/exports.ts"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "tsx scripts/render-all.ts",
+    "build": "echo 'render is the build'",
+    "typecheck": "tsc --noEmit",
+    "test": "echo 'no tests for remotion app'"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.300",
+    "@remotion/cli": "^4.0.300",
+    "@remotion/google-fonts": "^4.0.300",
+    "@remotion/renderer": "^4.0.300",
+    "@remotion/tailwind": "^4.0.300",
+    "@remotion/zod-types": "^4.0.300",
+    "@resume/data": "workspace:*",
+    "@resume/ui": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.300",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}
