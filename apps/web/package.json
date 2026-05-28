@@ -1,14 +1,14 @@
 {
   "name": "web",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {

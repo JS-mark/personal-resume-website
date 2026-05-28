@@ -23,9 +23,13 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'remotion-player': ['@remotion/player', 'remotion'],
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+        manualChunks(id) {
+          if (!id.includes('node_modules'))
+            return
+          if (/[/\\](?:@remotion[/\\]player|remotion)[/\\]/.test(id))
+            return 'remotion-player'
+          if (/[/\\](?:react|react-dom|react-router-dom|react-router)[/\\]/.test(id))
+            return 'react-vendor'
         },
       },
     },
