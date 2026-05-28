@@ -5,12 +5,25 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# GitHub Pages 部署所需权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一份；新提交会取消进行中的部署，避免相互覆盖
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  # 仓库子路径形态：发布到 https://<user>.github.io/<REPO>/
+  # 改成自定义域名时把这一行改回 '/' 即可
+  BASE_PATH: /personal-resume-website/
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +36,7 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      # Remotion 渲染需要 Chromium 系统依赖与 ffmpeg
+      # Remotion 渲染所需的系统库（Chromium + ffmpeg）
       - name: Install system deps for Remotion
         run: |
           sudo apt-get update
@@ -43,7 +56,7 @@ jobs:
           path: ~/.cache/remotion
           key: remotion-chromium-${{ runner.os }}-v4
 
-      # 缓存渲染产物：composition 源码 + data 未变时直接命中
+      # 渲染产物按 composition 源码 + 简历数据哈希缓存
       - name: Cache rendered videos
         id: cache-videos
         uses: actions/cache@v4
@@ -58,13 +71,29 @@ jobs:
         run: pnpm render
 
       - name: Build web
+        env:
+          BASE_PATH: ${{ env.BASE_PATH }}
         run: pnpm --filter web build
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      # SPA fallback：GitHub Pages 不支持 _redirects，需要 404.html 兜底；
+      # 加 .nojekyll 让以下划线开头的资源（如 chunks）不被忽略
+      - name: Prepare SPA fallback for GitHub Pages
+        run: |
+          cp apps/web/dist/index.html apps/web/dist/404.html
+          touch apps/web/dist/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: resume
-          directory: apps/web/dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          path: apps/web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

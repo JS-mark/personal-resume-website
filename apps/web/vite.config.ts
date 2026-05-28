@@ -2,7 +2,12 @@ import path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
+// GitHub Pages 子路径部署：env BASE_PATH 由 deploy workflow 注入；
+// 本地 dev 与其它部署目标都默认 '/'。
+const base = process.env.BASE_PATH ?? '/'
+
 export default defineConfig({
+  base,
   plugins: [react()],
   resolve: {
     alias: {
