@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm install            # bootstrap (Node >=20, pnpm >=9)
+pnpm install            # bootstrap (Node >=22, pnpm >=9)
 pnpm dev                # turbo: web (5173) + remotion studio (3000) in parallel
 pnpm dev:web            # web only
 pnpm dev:remotion       # remotion studio only
