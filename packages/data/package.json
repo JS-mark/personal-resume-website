@@ -13,12 +13,13 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "echo 'data package is source-only'",
-    "test": "echo 'no tests in data package'"
+    "test": "echo 'no tests in data package'",
+    "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "zod": "^3.23.0"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^6.0.3"
   }
 }

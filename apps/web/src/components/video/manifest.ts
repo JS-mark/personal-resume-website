@@ -1,4 +1,4 @@
-import rawManifest from '../../../public/manifest.json'
+import rawManifest from '../../generated/manifest.json'
 
 export interface VideoEntry {
   mp4?: string

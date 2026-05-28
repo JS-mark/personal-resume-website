@@ -11,13 +11,7 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined
 
 export function App() {
   return (
-    <BrowserRouter
-      basename={basename}
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
+    <BrowserRouter basename={basename}>
       <TerminalShell>
         <Routes>
           <Route path="/" element={<HomePage />} />

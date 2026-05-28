@@ -8,33 +8,34 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@remotion/player": "^4.0.300",
+    "@remotion/player": "^4.0.468",
     "@resume/data": "workspace:*",
     "@resume/remotion": "workspace:*",
     "@resume/ui": "workspace:*",
-    "framer-motion": "^11.11.0",
-    "i18next": "^23.16.0",
-    "i18next-browser-languagedetector": "^8.0.0",
+    "framer-motion": "^12.40.0",
+    "i18next": "^26.0.1",
+    "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.460.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-i18next": "^15.1.0",
-    "react-router-dom": "^6.27.0",
-    "remotion": "^4.0.300",
-    "zod": "^3.23.8"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-i18next": "^17.0.8",
+    "react-router-dom": "^7.15.1",
+    "remotion": "^4.0.468",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.10",
-    "vitest": "^2.1.0"
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14",
+    "vitest": "^4.1.7"
   }
 }

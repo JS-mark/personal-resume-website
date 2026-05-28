@@ -67,7 +67,7 @@ jobs:
         with:
           path: |
             apps/web/public/videos
-            apps/web/public/manifest.json
+            apps/web/src/generated/manifest.json
           key: videos-${{ hashFiles('apps/remotion/src/**', 'packages/data/src/**') }}
 
       - name: Render Remotion videos

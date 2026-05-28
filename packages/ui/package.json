@@ -13,19 +13,20 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "echo 'ui package is source-only'",
-    "test": "echo 'no tests in ui package'"
+    "test": "echo 'no tests in ui package'",
+    "clean": "rm -rf dist node_modules"
   },
   "peerDependencies": {
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
-    "tailwindcss": "^3.4.0"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.5.4"
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^6.0.3"
   }
 }

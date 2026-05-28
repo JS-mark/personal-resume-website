@@ -13,29 +13,30 @@
     "render": "tsx scripts/render-all.ts",
     "build": "echo 'render is the build'",
     "typecheck": "tsc --noEmit",
-    "test": "echo 'no tests for remotion app'"
+    "test": "echo 'no tests for remotion app'",
+    "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@remotion/bundler": "^4.0.300",
-    "@remotion/cli": "^4.0.300",
-    "@remotion/google-fonts": "^4.0.300",
-    "@remotion/renderer": "^4.0.300",
-    "@remotion/tailwind": "^4.0.300",
-    "@remotion/zod-types": "^4.0.300",
+    "@remotion/bundler": "^4.0.468",
+    "@remotion/cli": "^4.0.468",
+    "@remotion/google-fonts": "^4.0.468",
+    "@remotion/renderer": "^4.0.468",
+    "@remotion/tailwind": "^4.0.468",
+    "@remotion/zod-types": "^4.0.468",
     "@resume/data": "workspace:*",
     "@resume/ui": "workspace:*",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "remotion": "^4.0.300",
-    "zod": "^3.23.8"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.468",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "tsx": "^4.19.0",
-    "typescript": "^5.5.4"
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
   }
 }

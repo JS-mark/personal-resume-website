@@ -19,7 +19,8 @@ apps/remotion/.cache
 apps/web/public/videos/*.mp4
 apps/web/public/videos/*.webm
 apps/web/public/videos/*.jpg
-apps/web/public/manifest.json
+# manifest.json 入库一个空 stub；render 会覆盖它（git 会显示 modified，
+# 这是预期行为——manifest 是 generated artifact，不要把它当 source 提交）
 
 # IDE
 .vscode/*

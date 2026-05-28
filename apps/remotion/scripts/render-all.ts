@@ -14,8 +14,11 @@ import { resume } from '@resume/data'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const REMOTION_ROOT = path.resolve(__dirname, '..')
 const ENTRY = path.join(REMOTION_ROOT, 'src/index.ts')
+// 视频是运行时静态资源 → public/
 const OUT_DIR = path.resolve(REMOTION_ROOT, '../web/public/videos')
-const MANIFEST_PATH = path.resolve(REMOTION_ROOT, '../web/public/manifest.json')
+// manifest 是被 TS 编译期 import 的数据 → src/generated/
+// （Vite 8 起不再允许从 JS 中直接 import public/ 下的文件）
+const MANIFEST_PATH = path.resolve(REMOTION_ROOT, '../web/src/generated/manifest.json')
 
 interface RenderJob {
   /** Remotion composition id */
@@ -70,6 +73,7 @@ const jobs: RenderJob[] = [
 
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true })
+  await fs.mkdir(path.dirname(MANIFEST_PATH), { recursive: true })
 
   console.log('[render] bundling remotion entry...')
   const serveUrl = await bundle({
