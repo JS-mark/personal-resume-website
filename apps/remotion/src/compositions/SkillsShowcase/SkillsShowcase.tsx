@@ -1,10 +1,10 @@
+import type { SkillsShowcaseProps } from './schema'
 import { AbsoluteFill } from 'remotion'
 import { ensureFonts } from '../../fonts'
 import { NeonGrid } from '../../layers/NeonGrid'
 import { Scanlines } from '../../layers/Scanlines'
 import { theme } from '../../theme'
 import { BarsScene } from './scenes/BarsScene'
-import type { SkillsShowcaseProps } from './schema'
 
 ensureFonts()
 

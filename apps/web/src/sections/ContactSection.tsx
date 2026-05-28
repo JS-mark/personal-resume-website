@@ -21,7 +21,7 @@ export function ContactSection() {
     try {
       await navigator.clipboard.writeText(basics.email)
       setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      setTimeout(setCopied, 1500, false)
     }
     catch {
       // 不支持 clipboard 时静默失败

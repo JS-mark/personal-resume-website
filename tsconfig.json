@@ -1,12 +1,12 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "noEmit": true
+  },
   "references": [
     { "path": "./packages/data" },
     { "path": "./packages/ui" },
     { "path": "./apps/remotion" },
     { "path": "./apps/web" }
   ],
-  "compilerOptions": {
-    "noEmit": true
-  }
+  "files": []
 }

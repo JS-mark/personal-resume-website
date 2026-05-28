@@ -47,12 +47,18 @@ export function SiteFooter() {
                 ? (
                     <span>
                       <span className="text-neon-cyan">{credits.license}</span>
-                      <span className="text-terminal-fgDim"> {t('footer.licensed')}</span>
+                      <span className="text-terminal-fgDim">
+                        {' '}
+                        {t('footer.licensed')}
+                      </span>
                     </span>
                   )
                 : (
                     <span>
-                      <span className="text-terminal-fgDim">{t('footer.licensed')} </span>
+                      <span className="text-terminal-fgDim">
+                        {t('footer.licensed')}
+                        {' '}
+                      </span>
                       <span className="text-neon-cyan">{credits.license}</span>
                     </span>
                   )

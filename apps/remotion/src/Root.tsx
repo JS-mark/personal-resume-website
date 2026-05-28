@@ -8,8 +8,8 @@ import { HeroIntro } from './compositions/HeroIntro/HeroIntro'
 import { heroIntroDefaults, heroIntroSchema } from './compositions/HeroIntro/schema'
 import { ProjectShowcase } from './compositions/ProjectShowcase/ProjectShowcase'
 import { projectShowcaseDefaults, projectShowcaseSchema } from './compositions/ProjectShowcase/schema'
-import { SkillsShowcase } from './compositions/SkillsShowcase/SkillsShowcase'
 import { skillsShowcaseDefaults, skillsShowcaseSchema } from './compositions/SkillsShowcase/schema'
+import { SkillsShowcase } from './compositions/SkillsShowcase/SkillsShowcase'
 
 const W = 1920
 const H = 1080

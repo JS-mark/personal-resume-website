@@ -31,12 +31,12 @@ export {
 } from './compositions/ProjectShowcase/schema'
 export type { ProjectShowcaseProps } from './compositions/ProjectShowcase/schema'
 
-export { SkillsShowcase } from './compositions/SkillsShowcase/SkillsShowcase'
 export {
   skillsShowcaseDefaults,
   skillsShowcaseSchema,
 } from './compositions/SkillsShowcase/schema'
 export type { SkillsShowcaseProps } from './compositions/SkillsShowcase/schema'
+export { SkillsShowcase } from './compositions/SkillsShowcase/SkillsShowcase'
 
 /** 各 composition 的元数据：网站端用来设定 Player 尺寸/帧率/时长 */
 export const compositionMeta = {

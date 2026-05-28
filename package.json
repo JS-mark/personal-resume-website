@@ -1,10 +1,14 @@
 {
   "name": "personal-resume-website",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "description": "暗黑赛博朋克风格的个人简历站点 + Remotion 视频展示",
   "packageManager": "pnpm@9.15.0",
-  "type": "module",
+  "description": "暗黑赛博朋克风格的个人简历站点 + Remotion 视频展示",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "dev": "turbo run dev --parallel",
     "dev:web": "pnpm --filter web dev",
@@ -25,16 +29,5 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "turbo": "^2.9.15",
     "typescript": "^6.0.3"
-  },
-  "engines": {
-    "node": ">=22",
-    "pnpm": ">=9"
-  },
-  "pnpm": {
-    "overrides": {
-      "zod": "^3.23.0",
-      "react": "^18.3.1",
-      "react-dom": "^18.3.1"
-    }
   }
 }

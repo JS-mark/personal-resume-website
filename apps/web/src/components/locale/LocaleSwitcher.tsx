@@ -1,7 +1,7 @@
 import type { Locale } from '@resume/data'
 import { useTranslation } from 'react-i18next'
 
-const locales: Array<{ code: Locale; label: string }> = [
+const locales: Array<{ code: Locale, label: string }> = [
   { code: 'en', label: 'EN' },
   { code: 'zh', label: '中' },
 ]

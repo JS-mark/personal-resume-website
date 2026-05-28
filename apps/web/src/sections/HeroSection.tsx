@@ -36,7 +36,10 @@ export function HeroSection() {
         />
       </div>
       <Reveal as="div" delay={0.4}>
-        <p className="font-mono text-xs text-terminal-fgDim">↓ {t('hero.subtitle')}</p>
+        <p className="font-mono text-xs text-terminal-fgDim">
+          ↓
+          {t('hero.subtitle')}
+        </p>
       </Reveal>
     </section>
   )

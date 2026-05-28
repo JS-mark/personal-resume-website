@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
-    "types": ["node"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["node"],
+    "noEmit": true
   },
   "include": ["src/**/*", "scripts/**/*", "remotion.config.ts"]
 }

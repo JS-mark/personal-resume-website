@@ -9,7 +9,7 @@ export interface RevealProps {
   y?: number
   /** 触发后是否只播一次（默认 true，避免反复打扰）；视频自身已有滚回重播逻辑 */
   once?: boolean
-  /** 多少比例进入视口才触发（0~1，默认 0.2）*/
+  /** 多少比例进入视口才触发（0~1，默认 0.2） */
   amount?: number
   className?: string
   as?: 'div' | 'section' | 'li' | 'article'

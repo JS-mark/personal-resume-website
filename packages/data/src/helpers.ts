@@ -19,8 +19,18 @@ export function formatYearMonth(iso: string, locale: Locale): string {
   }
 
   const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ]
   return `${monthNames[month - 1]} ${year}`
 }
@@ -40,7 +50,7 @@ export function skillLevelLabel(level: 1 | 2 | 3 | 4 | 5, locale: Locale): strin
 }
 
 /** 计算职业经历总年数（向上取整到一位小数） */
-export function calculateYearsOfExperience(work: Array<{ startDate: string; endDate?: string }>): number {
+export function calculateYearsOfExperience(work: Array<{ startDate: string, endDate?: string }>): number {
   if (work.length === 0)
     return 0
 

@@ -1,5 +1,5 @@
-export * from './types'
-export * from './schema'
 export * from './helpers'
-export { resume } from './resume'
 export { projects, projectsBySlug } from './projects'
+export { resume } from './resume'
+export * from './schema'
+export * from './types'

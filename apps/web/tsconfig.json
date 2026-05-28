@@ -1,13 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "noEmit": true,
     "tsBuildInfoFile": "./.tsbuildinfo",
-    "types": ["vite/client"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite/client"],
+    "noEmit": true,
+    "outDir": "dist"
   },
   "include": ["src/**/*", "src/**/*.json"]
 }

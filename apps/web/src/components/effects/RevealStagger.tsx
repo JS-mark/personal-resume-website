@@ -5,9 +5,9 @@ export interface RevealStaggerProps {
   children: ReactNode
   /** 子元素之间的错开间隔（秒），默认 0.06 */
   stagger?: number
-  /** 整组开始前的延迟（秒）*/
+  /** 整组开始前的延迟（秒） */
   delayChildren?: number
-  /** 多少比例进入视口才触发（0~1）*/
+  /** 多少比例进入视口才触发（0~1） */
   amount?: number
   once?: boolean
   className?: string

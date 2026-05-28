@@ -1,3 +1,4 @@
+import fs from 'node:fs/promises'
 /**
  * 渲染所有 composition 到 apps/web/public/videos/，并写入 manifest.json。
  *
@@ -6,7 +7,6 @@
  */
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import fs from 'node:fs/promises'
 import { bundle } from '@remotion/bundler'
 import { renderMedia, selectComposition } from '@remotion/renderer'
 import { resume } from '@resume/data'
@@ -81,7 +81,7 @@ async function main() {
     webpackOverride: config => config,
   })
 
-  const manifest: Record<string, { mp4: string; poster?: string }> = {}
+  const manifest: Record<string, { mp4: string, poster?: string }> = {}
 
   for (const job of jobs) {
     console.log(`[render] ${job.compositionId} → ${job.outBase}.mp4`)

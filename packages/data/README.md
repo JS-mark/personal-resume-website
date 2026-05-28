@@ -10,14 +10,14 @@
 
 ```ts
 import {
-  resume,                // 简历主数据 (单例)
-  projects,              // 项目数组
-  projectsBySlug,        // { [slug]: ProjectItem }
-  localize,              // (LocalizedString, locale) → string
-  formatYearMonth,       // ISO yyyy-mm → 'Jan 2024' | '2024 年 1 月'
-  skillLevelLabel,       // 1-5 → '入门' / 'Expert' …
   calculateYearsOfExperience,
-  resumeSchema,          // zod
+  formatYearMonth, // ISO yyyy-mm → 'Jan 2024' | '2024 年 1 月'
+  localize, // (LocalizedString, locale) → string
+  projects, // 项目数组
+  projectsBySlug, // { [slug]: ProjectItem }
+  resume, // 简历主数据 (单例)
+  resumeSchema, // zod
+  skillLevelLabel, // 1-5 → '入门' / 'Expert' …
   // 以及全部 TS 类型
 } from '@resume/data'
 ```
@@ -25,8 +25,8 @@ import {
 子路径导出:
 
 ```ts
-import { resumeSchema } from '@resume/data/schema'  // 仅 zod
-import type { Resume } from '@resume/data/types'    // 仅类型
+import type { Resume } from '@resume/data/types' // 仅类型
+import { resumeSchema } from '@resume/data/schema' // 仅 zod
 ```
 
 ## 文件
