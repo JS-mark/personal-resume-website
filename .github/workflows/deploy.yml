@@ -27,9 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 不指定 version，pnpm/action-setup 会读 package.json 的 "packageManager"
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - uses: actions/setup-node@v4
         with:
