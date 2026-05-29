@@ -9,14 +9,14 @@ export const resume: Resume = {
   $schema: 'https://jsonresume.org/schema/',
   basics: {
     name: 'JSMark',
-    nameLocalized: { zh: '孙铎', en: 'The Mark' },
+    nameLocalized: { zh: '圣痕', en: 'The Mark' },
     label: {
       zh: '资深前端工程师 · AI 应用 / 富文本编辑器',
       en: 'Senior Frontend Engineer · AI Apps · Rich-Text Editor',
     },
     image: '/images/avatar.jpg',
     email: 'sunduo3195@qq.com',
-    phone: '+86 186 0029 0021',
+    phone: '+86 186 8888 8888',
     url: 'https://js-mark.com',
     summary: {
       zh: '8 年前端开发经验，专注于复杂 Web 应用、富文本编辑器内核和 AI 应用客户端开发。近期基于 Tiptap / ProseMirror 重构编辑器内核以替代 CKEditor5，并基于 Cherry Studio 形态构建 AI 应用客户端，长期使用 Claude Code 推进 AI 辅助开发工程化。关注前端架构、可扩展性、复杂交互与工程治理。',
@@ -37,10 +37,36 @@ export const resume: Resume = {
     ],
   },
   work: [
+
+    {
+      name: { zh: '新浪微博', en: 'Weibo' },
+      position: { zh: '资深前端工程师', en: 'Senior Frontend Engineer' },
+      startDate: '2021-10',
+      summary: {
+        zh: '负责微博 PC / 移动端复杂业务系统前端开发，推动核心模块与工程化建设。',
+        en: 'Owned frontend for complex Weibo PC / mobile surfaces and pushed core-module + tooling work forward.',
+      },
+      highlights: [
+        {
+          zh: '负责复杂前端业务系统的开发、架构设计和核心模块建设',
+          en: 'Owned development, architecture and core-module work for complex frontend systems',
+        },
+        {
+          zh: '推动业务组件库与公共能力沉淀，统一跨业务前端开发体验',
+          en: 'Built shared component library + common capabilities to unify cross-product dev experience',
+        },
+        {
+          zh: '推动前端工程化、代码质量与性能优化体系落地',
+          en: 'Drove adoption of engineering, code-quality and perf practices',
+        },
+      ],
+      techStack: ['TypeScript', 'React', 'Webpack', 'Node.js'],
+    },
     {
       name: { zh: '伴鱼', en: 'Banyu' },
       position: { zh: '高级前端工程师', en: 'Senior Frontend Engineer' },
-      startDate: '2021-10',
+      startDate: '2020-09',
+      endDate: '2021-10',
       summary: {
         zh: '负责伴鱼前端核心模块建设，主导富文本编辑器内核重构与 AI 应用客户端开发。',
         en: 'Drove core frontend module development at Banyu — leading the rich-text editor core rebuild and the AI desktop client.',
@@ -64,31 +90,6 @@ export const resume: Resume = {
         },
       ],
       techStack: ['TypeScript', 'React', 'Vue', 'Tiptap', 'ProseMirror', 'Vite', 'Electron'],
-    },
-    {
-      name: { zh: '新浪微博', en: 'Weibo' },
-      position: { zh: '资深前端工程师', en: 'Senior Frontend Engineer' },
-      startDate: '2020-03',
-      endDate: '2021-09',
-      summary: {
-        zh: '负责微博 PC / 移动端复杂业务系统前端开发，推动核心模块与工程化建设。',
-        en: 'Owned frontend for complex Weibo PC / mobile surfaces and pushed core-module + tooling work forward.',
-      },
-      highlights: [
-        {
-          zh: '负责复杂前端业务系统的开发、架构设计和核心模块建设',
-          en: 'Owned development, architecture and core-module work for complex frontend systems',
-        },
-        {
-          zh: '推动业务组件库与公共能力沉淀，统一跨业务前端开发体验',
-          en: 'Built shared component library + common capabilities to unify cross-product dev experience',
-        },
-        {
-          zh: '推动前端工程化、代码质量与性能优化体系落地',
-          en: 'Drove adoption of engineering, code-quality and perf practices',
-        },
-      ],
-      techStack: ['TypeScript', 'React', 'Webpack', 'Node.js'],
     },
     {
       name: { zh: '海底捞', en: 'Haidilao' },
