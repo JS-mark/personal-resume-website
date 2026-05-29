@@ -1,3 +1,5 @@
+<img width="1718" height="996" alt="11111" src="https://github.com/user-attachments/assets/f8a9dc54-00cc-4a11-9b0d-fc0c39c565a3" />
+
 # Personal Resume Website
 
 暗黑赛博朋克风格的个人简历站点，采用 **Vite + React + TypeScript** 构建网站，**Remotion** 制作炫酷的技能/项目展示视频。
