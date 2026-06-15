@@ -42,37 +42,41 @@ export const resume: Resume = {
       position: { zh: '资深前端开发工程师', en: 'Senior Frontend Engineer' },
       startDate: '2021-10',
       summary: {
-        zh: '负责微博长文富文本编辑器内核与移动端工具链建设，主导 0→1 移动 UI 组件库与多端脚手架，并支撑微博 AI 创新业务前端落地。',
-        en: 'Owns the Weibo long-form rich-text editor core and the mobile frontend tooling stack — leading the zero-to-one mobile UI component library, multi-platform scaffolds, and frontend support for Weibo AI products.',
+        zh: '深度参与微博内部 AI 工具链与 AI 创新业务前端落地，同时负责长文富文本编辑器内核（基于 ProseMirror 重构）、移动端工具链与 0→1 UI 组件库建设，主导内部前端基建升级。',
+        en: 'Drove frontends for Weibo internal AI tooling and AI product initiatives, while owning the long-form rich-text editor core (rewritten on ProseMirror), the mobile tooling stack and the zero-to-one mobile UI library, plus leading the internal frontend infra revamp.',
       },
       highlights: [
         {
-          zh: '负责微博长文编辑器内核设计与优化，实现插件化架构（图文排版、格式转换等），完成 PC / 移动端内核互通，保障双端功能与体验一致',
-          en: 'Owned design and optimization of the Weibo long-form editor core — plugin architecture (rich layout, format conversion, ...) plus PC / mobile core interop for consistent dual-platform UX',
-        },
-        {
-          zh: '设计开发鸿蒙端内 JSB SDK 与 wb-cli 脚手架，支撑多端应用快速初始化与构建，提升开发效率 30%+',
-          en: 'Designed and shipped the HarmonyOS in-app JSB SDK and the wb-cli scaffold — multi-platform bootstrap and build pipeline, +30% dev velocity',
-        },
-        {
-          zh: '推进移动前端业务脚手架升级重构，优化依赖管理与构建流程，构建速度提升 48%',
-          en: 'Drove the upgrade/rewrite of the mobile business scaffold — dependency hygiene + build-pipeline overhaul cut build time by 48%',
-        },
-        {
-          zh: '主导新浪移动 UI 组件库从 0 到 1 搭建，统一微博、新浪新闻等业务视觉标准，覆盖 80% 移动端场景',
-          en: 'Led zero-to-one build of the Sina Mobile UI component library — unified visual standards across Weibo / Sina News, covering 80% of mobile surfaces',
+          zh: '参与公司内部 AI 工具链相关研发（项目涉密），围绕大模型接入、AI 辅助开发与内部效率工具产出关键前端能力',
+          en: 'Contributed to internal AI tooling R&D (confidential) — frontend building blocks for model integration, AI-assisted development and internal productivity tools',
         },
         {
           zh: '参与内部 AI 平台需求开发，支撑微博 AI 创新业务前端交互；配合搜索 / 推荐业务优化前端数据埋点，提升 AI 推荐准确性',
           en: 'Contributed to the internal AI platform — frontends for Weibo AI initiatives plus instrumentation tuning for search/recommendation models',
         },
         {
-          zh: '微博长文首次实现双端编辑器互通，用户编辑体验评分提升 25%；移动通用 UI 组件库上线后新业务开发周期缩短 40%',
-          en: 'First-ever dual-platform Weibo long-form editor interop (+25% editing-UX score); shipping the mobile UI library cut new-feature dev cycle by 40%',
+          zh: '完成微博编辑器内核基于 ProseMirror 的重构升级，统一 PC / 移动双端文档模型与扩展能力，为后续协作与 AI 能力打底',
+          en: 'Delivered a ground-up ProseMirror rewrite of the Weibo editor core — unified document model and extension API across PC and mobile, laying the foundation for collaboration and AI features',
         },
         {
-          zh: '获 2022 年度新浪移动优秀员工；新浪新闻冬奥小游戏首次上线并获公司认可',
-          en: 'Awarded 2022 Sina Mobile Outstanding Engineer; shipped the Sina News Winter-Olympics mini-game with company recognition',
+          zh: '负责微博长文编辑器内核设计与优化，沉淀插件化架构（图文排版、格式转换等），首次打通 PC / 移动双端，编辑体验评分 +25%',
+          en: 'Owned design and optimization of the Weibo long-form editor core — plugin architecture (rich layout, format conversion, ...) and first-ever PC / mobile interop, +25% editing-UX score',
+        },
+        {
+          zh: '主导设计内部前端基建的重构升级方案，统一脚手架、构建产物与发布流程，沉淀为团队级标准工程能力',
+          en: 'Led the redesign of the internal frontend infrastructure — unified scaffolds, build artifacts and release pipeline into a team-wide engineering standard',
+        },
+        {
+          zh: '设计开发鸿蒙端内 JSB SDK 与 wb-cli 脚手架，并推动移动业务脚手架升级重构，开发效率 +30%、构建速度 +48%',
+          en: 'Designed and shipped the HarmonyOS in-app JSB SDK plus the wb-cli scaffold, and drove the mobile business-scaffold rewrite — +30% dev velocity, +48% build speed',
+        },
+        {
+          zh: '主导新浪移动 UI 组件库从 0 到 1 搭建，统一微博 / 新浪新闻等业务视觉标准，覆盖 80% 移动端场景，新业务开发周期缩短 40%',
+          en: 'Led the zero-to-one Sina Mobile UI component library — unified visual standards across Weibo / Sina News, 80% mobile coverage, -40% new-feature cycle',
+        },
+        {
+          zh: '获 2025 年度微博优秀员工、2022 年度新浪移动优秀员工；新浪新闻冬奥小游戏首次上线并获公司认可',
+          en: 'Awarded 2025 Weibo Outstanding Employee and 2022 Sina Mobile Outstanding Engineer; shipped the Sina News Winter-Olympics mini-game with company recognition',
         },
       ],
       techStack: ['TypeScript', 'React', 'Vue', 'ProseMirror', 'Webpack', 'Vite', 'Node.js', 'HarmonyOS JSB'],
