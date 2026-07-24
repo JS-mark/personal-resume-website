@@ -3,8 +3,11 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // GitHub Pages 子路径部署：env BASE_PATH 由 deploy workflow 注入；
-// 本地 dev 与其它部署目标都默认 '/'。
-const base = process.env.BASE_PATH ?? '/'
+// 本地 dev 与其它部署目标（Vercel 等）都默认 '/'。
+// 注意：用 `||` 而非 `??`——Vercel/CI 里 BASE_PATH 可能是空字符串，
+// 空字符串会让 vite 产出相对路径 `./assets/`，SPA 子路由（/projects/:slug）
+// 刷新时会解析成 /projects/assets/... → 404 白屏。空串也必须回退到 '/'。
+const base = process.env.BASE_PATH || '/'
 
 export default defineConfig({
   base,
