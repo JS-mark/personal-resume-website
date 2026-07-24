@@ -73,6 +73,29 @@ pnpm build
 
 ## 部署
 
+本项目支持 **Vercel** 与 **GitHub Pages** 两条部署链路并存，互不干扰（前者用根路径 `/`，后者用子路径由 `BASE_PATH` 注入）。
+
+### Vercel（推荐，含 PR 预览）
+
+仓库根已提供 `vercel.json`，为 pnpm + Turborepo monorepo 预置好构建配置：
+
+| 配置项 | 值 |
+|---|---|
+| Install | `pnpm install --frozen-lockfile` |
+| Build | `pnpm --filter web build` |
+| Output | `apps/web/dist` |
+| Framework | `vite` |
+| SPA rewrites | 全部路由回退到 `/index.html`（修复 `/projects/:slug` 直达 404） |
+
+**在 Vercel 平台侧一次性操作**（代码侧无需再改）：
+1. Vercel → New Project → 导入本仓库；Root Directory 保持仓库根（`vercel.json` 会接管 monorepo 构建）。
+2. 无需设置 `BASE_PATH`（留空即根路径 `/`）。
+3. 保存后：push 到 `main` 自动上生产；每个 PR 自动生成预览部署链接。
+
+> 视频（Remotion mp4）默认**不在 Vercel 构建**——仓库入库了 `manifest.json` 空 stub，站点自动降级到静态 poster，构建约 1–2 秒即完成。视频资产由 GitHub Pages 链路的 CI 预渲染。
+
+### GitHub Pages（子路径形态）
+
 默认 workflow（`.github/workflows/deploy.yml`）发布到 **GitHub Pages 子路径**：
 
 1. push 到 `main` 触发 workflow
