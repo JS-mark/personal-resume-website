@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "packageManager": "pnpm@9.15.0",
   "description": "暗黑赛博朋克风格的个人简历站点 + Remotion 视频展示",
   "engines": {

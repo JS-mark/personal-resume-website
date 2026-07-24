@@ -2,12 +2,18 @@
 
 # Personal Resume Website
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![CI](https://github.com/JS-mark/personal-resume-website/actions/workflows/ci.yml/badge.svg)](https://github.com/JS-mark/personal-resume-website/actions/workflows/ci.yml)
+[![Stars](https://img.shields.io/github/stars/JS-mark/personal-resume-website?style=social)](https://github.com/JS-mark/personal-resume-website/stargazers)
+
+> 一套**开箱即用、可 fork 定制**的赛博朋克风个人简历模板：改一份数据文件，网站与展示视频自动重渲染。
+
 暗黑赛博朋克风格的个人简历站点，采用 **Vite + React + TypeScript** 构建网站，**Remotion** 制作炫酷的技能/项目展示视频。
 
 ## 技术栈
 
 - **Monorepo**：pnpm workspace + Turborepo
-- **网站**：Vite 5 · React 18 · TypeScript 5 · Tailwind CSS v3 · React Router v6 · react-i18next
+- **网站**：Vite 8 · React 19 · TypeScript 6 · Tailwind CSS v3 · React Router v7 · react-i18next
 - **视频**：Remotion 4（视频内核）+ `@remotion/player`（网站内交互式播放）
 - **数据**：基于 [JSON Resume](https://jsonresume.org/) schema 扩展，中英双语
 - **部署**：GitHub Pages（默认，子路径形态）；可一行切换到 Cloudflare Pages / Vercel / 自定义域名
